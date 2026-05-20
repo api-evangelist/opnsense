@@ -48,6 +48,8 @@ apis:
       - type: Authentication
         url: https://docs.opnsense.org/development/how-tos/api.html
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/showcase/opnsense
   - type: Website
     url: https://opnsense.org
   - type: Documentation
