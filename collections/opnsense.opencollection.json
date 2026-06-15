@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OPNsense Core REST API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Core",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search services",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/api/core/service/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search the list of OPNsense services with grid parameters."
+        },
+        {
+          "info": {
+            "name": "Get firmware status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/api/core/firmware/status"
+          },
+          "docs": "Returns the current firmware status of the system."
+        },
+        {
+          "info": {
+            "name": "Get system status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/api/core/system/status"
+          },
+          "docs": "Returns overall system status information."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Firewall",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get firewall aliases configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/api/firewall/alias/get"
+          },
+          "docs": "Returns the configured firewall aliases."
+        },
+        {
+          "info": {
+            "name": "Reconfigure firewall aliases",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/api/firewall/alias/reconfigure"
+          },
+          "docs": "Applies the current alias configuration."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Diagnostics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List interface names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/api/diagnostics/interface/getInterfaceNames"
+          },
+          "docs": "Returns the list of available network interface names."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
