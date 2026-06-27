@@ -56,7 +56,7 @@ common:
     url: https://docs.opnsense.org
   - type: Download
     url: https://opnsense.org/download/
-  - type: Forum
+  - type: Forums
     url: https://forum.opnsense.org
   - type: GitHubOrganization
     url: https://github.com/opnsense
