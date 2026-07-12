@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/opnsense-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: |-
+    HTTP Basic Authentication with the API key as username and the
+    API secret as password.
+  sources:
+  - openapi/opnsense-openapi.yml

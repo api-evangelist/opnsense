@@ -48,6 +48,10 @@ apis:
       - type: Authentication
         url: https://docs.opnsense.org/development/how-tos/api.html
 common:
+  - type: DomainSecurity
+    url: security/opnsense-domain-security.yml
+  - type: Authentication
+    url: authentication/opnsense-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/opnsense
   - type: Website
