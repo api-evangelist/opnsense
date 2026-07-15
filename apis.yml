@@ -48,6 +48,8 @@ apis:
       - type: Authentication
         url: https://docs.opnsense.org/development/how-tos/api.html
 common:
+  - type: AgenticAccess
+    url: agentic-access/opnsense-agentic-access.yml
   - type: DomainSecurity
     url: security/opnsense-domain-security.yml
   - type: Authentication
