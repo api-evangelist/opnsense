@@ -1,0 +1,108 @@
+openapi: 3.1.0
+info:
+  title: OPNsense REST Core Firewall API
+  description: 'REST API for OPNsense, an open source FreeBSD-based firewall and routing platform.
+
+    The API follows a uniform URL pattern:
+
+    `/api/<module>/<controller>/<command>/[<param1>/<param2>/...]`
+
+    and uses HTTP Basic Authentication where the API key is supplied as the
+
+    username and the API secret as the password.
+
+
+    Only GET and POST verbs are used: GET retrieves data, POST creates,
+
+    updates, or executes actions.
+
+    '
+  version: 1.0.0
+  contact:
+    name: OPNsense
+    url: https://opnsense.org
+  license:
+    name: BSD 2-Clause
+    url: https://opensource.org/licenses/BSD-2-Clause
+servers:
+- url: https://{host}/api
+  description: OPNsense host API base path
+  variables:
+    host:
+      default: opnsense.local
+      description: Hostname or IP of the OPNsense firewall
+security:
+- basicAuth: []
+tags:
+- name: Firewall
+  description: Firewall filter and aliases.
+paths:
+  /firewall/alias/get:
+    get:
+      tags:
+      - Firewall
+      summary: Get firewall aliases configuration
+      description: Returns the configured firewall aliases.
+      operationId: getFirewallAliases
+      responses:
+        '200':
+          description: Alias configuration.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /firewall/alias/reconfigure:
+    post:
+      tags:
+      - Firewall
+      summary: Reconfigure firewall aliases
+      description: Applies the current alias configuration.
+      operationId: reconfigureFirewallAliases
+      responses:
+        '200':
+          description: Reconfigure result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          examples:
+          - ok
+          - failed
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+  responses:
+    Unauthorized:
+      description: Authentication failed or missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic Authentication with the API key as username and the
+
+        API secret as password.
+
+        '
+externalDocs:
+  description: OPNsense API Documentation
+  url: https://docs.opnsense.org/development/api.html

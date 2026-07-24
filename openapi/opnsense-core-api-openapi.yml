@@ -1,16 +1,23 @@
 openapi: 3.1.0
 info:
-  title: OPNsense Core REST API
-  description: |
-    REST API for OPNsense, an open source FreeBSD-based firewall and routing platform.
+  title: OPNsense REST Core API
+  description: 'REST API for OPNsense, an open source FreeBSD-based firewall and routing platform.
+
     The API follows a uniform URL pattern:
+
     `/api/<module>/<controller>/<command>/[<param1>/<param2>/...]`
+
     and uses HTTP Basic Authentication where the API key is supplied as the
+
     username and the API secret as the password.
 
+
     Only GET and POST verbs are used: GET retrieves data, POST creates,
+
     updates, or executes actions.
-  version: "1.0.0"
+
+    '
+  version: 1.0.0
   contact:
     name: OPNsense
     url: https://opnsense.org
@@ -18,25 +25,22 @@ info:
     name: BSD 2-Clause
     url: https://opensource.org/licenses/BSD-2-Clause
 servers:
-  - url: https://{host}/api
-    description: OPNsense host API base path
-    variables:
-      host:
-        default: opnsense.local
-        description: Hostname or IP of the OPNsense firewall
+- url: https://{host}/api
+  description: OPNsense host API base path
+  variables:
+    host:
+      default: opnsense.local
+      description: Hostname or IP of the OPNsense firewall
 security:
-  - basicAuth: []
+- basicAuth: []
 tags:
-  - name: Core
-    description: Core OPNsense service controllers.
-  - name: Firewall
-    description: Firewall filter and aliases.
-  - name: Diagnostics
-    description: Interface and system diagnostics.
+- name: Core
+  description: Core OPNsense service controllers.
 paths:
   /core/service/search:
     post:
-      tags: [Core]
+      tags:
+      - Core
       summary: Search services
       description: Search the list of OPNsense services with grid parameters.
       operationId: searchCoreServices
@@ -47,109 +51,49 @@ paths:
             schema:
               $ref: '#/components/schemas/GridSearchRequest'
       responses:
-        "200":
+        '200':
           description: Search result set.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GridSearchResponse'
-        "401":
+        '401':
           $ref: '#/components/responses/Unauthorized'
   /core/firmware/status:
     get:
-      tags: [Core]
+      tags:
+      - Core
       summary: Get firmware status
       description: Returns the current firmware status of the system.
       operationId: getFirmwareStatus
       responses:
-        "200":
+        '200':
           description: Firmware status payload.
           content:
             application/json:
               schema:
                 type: object
                 additionalProperties: true
-        "401":
+        '401':
           $ref: '#/components/responses/Unauthorized'
   /core/system/status:
     get:
-      tags: [Core]
+      tags:
+      - Core
       summary: Get system status
       description: Returns overall system status information.
       operationId: getSystemStatus
       responses:
-        "200":
+        '200':
           description: System status payload.
           content:
             application/json:
               schema:
                 type: object
                 additionalProperties: true
-        "401":
-          $ref: '#/components/responses/Unauthorized'
-  /firewall/alias/get:
-    get:
-      tags: [Firewall]
-      summary: Get firewall aliases configuration
-      description: Returns the configured firewall aliases.
-      operationId: getFirewallAliases
-      responses:
-        "200":
-          description: Alias configuration.
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties: true
-        "401":
-          $ref: '#/components/responses/Unauthorized'
-  /firewall/alias/reconfigure:
-    post:
-      tags: [Firewall]
-      summary: Reconfigure firewall aliases
-      description: Applies the current alias configuration.
-      operationId: reconfigureFirewallAliases
-      responses:
-        "200":
-          description: Reconfigure result.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StatusResponse'
-        "401":
-          $ref: '#/components/responses/Unauthorized'
-  /diagnostics/interface/getInterfaceNames:
-    get:
-      tags: [Diagnostics]
-      summary: List interface names
-      description: Returns the list of available network interface names.
-      operationId: getInterfaceNames
-      responses:
-        "200":
-          description: Map of interface device names.
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties:
-                  type: string
-        "401":
+        '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  securitySchemes:
-    basicAuth:
-      type: http
-      scheme: basic
-      description: |
-        HTTP Basic Authentication with the API key as username and the
-        API secret as password.
-  responses:
-    Unauthorized:
-      description: Authentication failed or missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   schemas:
     GridSearchRequest:
       type: object
@@ -182,12 +126,6 @@ components:
           items:
             type: object
             additionalProperties: true
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          examples: ["ok", "failed"]
     ErrorResponse:
       type: object
       properties:
@@ -195,6 +133,22 @@ components:
           type: string
         message:
           type: string
+  responses:
+    Unauthorized:
+      description: Authentication failed or missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic Authentication with the API key as username and the
+
+        API secret as password.
+
+        '
 externalDocs:
   description: OPNsense API Documentation
   url: https://docs.opnsense.org/development/api.html
