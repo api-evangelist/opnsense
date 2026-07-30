@@ -10,7 +10,19 @@ description: >-
   every core module and plugin, using HTTP basic authentication with an
   API key and secret.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/opnsense.png
 tags:
   - Firewall
   - Networking
@@ -24,29 +36,58 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: opnsense:core-api
-    name: OPNsense Core REST API
-    description: >-
-      REST API covering all core OPNsense modules including firewall, NAT,
-      interfaces, VPN (IPsec, OpenVPN, WireGuard), routing, DHCP, DNS, users,
-      and system administration. Authentication uses HTTP basic auth with
-      an API key as username and API secret as password.
-    humanURL: https://docs.opnsense.org/development/api.html
-    baseURL: https://opnsense.local/api
-    tags:
-      - Firewall
-      - Networking
-      - VPN
-      - System Administration
-    properties:
-      - type: Documentation
-        url: https://docs.opnsense.org/development/api.html
-      - type: Core API Reference
-        url: https://docs.opnsense.org/development/api.html#core-api
-      - type: Plugins API Reference
-        url: https://docs.opnsense.org/development/api.html#plugins
-      - type: Authentication
-        url: https://docs.opnsense.org/development/how-tos/api.html
+- aid: opnsense:core-api
+  name: OPNsense Core REST API
+  description: >-
+    REST API covering all core OPNsense modules including firewall, NAT, interfaces, VPN (IPsec, OpenVPN,
+    WireGuard), routing, DHCP, DNS, users, and system administration. Authentication uses HTTP basic auth
+    with an API key as username and API secret as password.
+  humanURL: https://docs.opnsense.org/development/api.html
+  baseURL: https://opnsense.local/api
+  tags:
+  - Firewall
+  - Networking
+  - VPN
+  - System Administration
+  properties:
+  - type: Documentation
+    url: https://docs.opnsense.org/development/api.html
+  - type: Core API Reference
+    url: https://docs.opnsense.org/development/api.html#core-api
+  - type: Plugins API Reference
+    url: https://docs.opnsense.org/development/api.html#plugins
+  - type: Authentication
+    url: https://docs.opnsense.org/development/how-tos/api.html
+- aid: opnsense:opnsense-core-api
+  name: OPNsense Core API
+  description: Core OPNsense service controllers.
+  humanURL: https://docs.opnsense.org/development/api.html
+  baseURL: https://opnsense.local/api
+  tags:
+  - Core
+  properties:
+  - type: OpenAPI
+    url: openapi/opnsense-core-api-openapi.yml
+- aid: opnsense:opnsense-diagnostics-api
+  name: OPNsense Diagnostics API
+  description: Interface and system diagnostics.
+  humanURL: https://docs.opnsense.org/development/api.html
+  baseURL: https://opnsense.local/api
+  tags:
+  - Diagnostics
+  properties:
+  - type: OpenAPI
+    url: openapi/opnsense-diagnostics-api-openapi.yml
+- aid: opnsense:opnsense-firewall-api
+  name: OPNsense Firewall API
+  description: Firewall filter and aliases.
+  humanURL: https://docs.opnsense.org/development/api.html
+  baseURL: https://opnsense.local/api
+  tags:
+  - Firewall
+  properties:
+  - type: OpenAPI
+    url: openapi/opnsense-firewall-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/opnsense-agentic-access.yml
