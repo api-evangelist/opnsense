@@ -1,0 +1,18 @@
+{
+  "provider": "opnsense",
+  "sources": [
+    "opnsense-core-api-openapi.yml",
+    "opnsense-diagnostics-api-openapi.yml",
+    "opnsense-firewall-api-openapi.yml"
+  ],
+  "outputs": [
+    "opnsense-core-api-openapi.yml",
+    "opnsense-diagnostics-api-openapi.yml",
+    "opnsense-firewall-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
