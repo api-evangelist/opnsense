@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OPNsense REST Core Firewall API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Firewall",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get firewall aliases configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/api/firewall/alias/get"
+          },
+          "docs": "Returns the configured firewall aliases."
+        },
+        {
+          "info": {
+            "name": "Reconfigure firewall aliases",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/api/firewall/alias/reconfigure"
+          },
+          "docs": "Applies the current alias configuration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "a8b73ad6-72fa-4d03-be8f-f4d793fc4b64",
+      "name": "Diagnostics",
+      "description": {
+        "content": "Interface and system diagnostics.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "63c5a75d-dc59-4c2e-ba07-2a8e59a8e227",
+          "name": "List interface names",
+          "request": {
+            "name": "List interface names",
+            "description": {
+              "content": "Returns the list of available network interface names.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "diagnostics",
+                "interface",
+                "getInterfaceNames"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the OPNsense firewall",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b0d93e8-16c5-42d0-9fad-500da9643db5",
+              "name": "Map of interface device names.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "diagnostics",
+                    "interface",
+                    "getInterfaceNames"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the OPNsense firewall",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0db7eea0-ce19-453d-88ec-678b063e98a2",
+              "name": "Authentication failed or missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "diagnostics",
+                    "interface",
+                    "getInterfaceNames"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the OPNsense firewall",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname or IP of the OPNsense firewall",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "opnsense.local",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2c543952-b2e0-4935-8742-634e56ff4af7",
+    "name": "OPNsense REST Core Diagnostics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for OPNsense, an open source FreeBSD-based firewall and routing platform.\nThe API follows a uniform URL pattern:\n`/api/<module>/<controller>/<command>/[<param1>/<param2>/...]`\nand uses HTTP Basic Authentication where the API key is supplied as the\nusername and the API secret as the password.\n\nOnly GET and POST verbs are used: GET retrieves data, POST creates,\nupdates, or executes actions.\n\n\nContact Support:\n Name: OPNsense",
+      "type": "text/plain"
+    }
+  }
+}
