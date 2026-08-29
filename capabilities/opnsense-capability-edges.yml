@@ -1,0 +1,36 @@
+slug: opnsense
+provider: OPNsense
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Core
+  spec_file: opnsense-core-api-openapi.yml
+  capability_id: BC-600.40
+  capability_id_l1: BC-600
+  capability_name: IT Operations Management
+  confidence: 0.7
+  evidence: GET /core/system/status  getSystemStatus; GET /core/firmware/status  getFirmwareStatus; POST
+    /core/service/search  searchCoreServices
+  reason: Operational health, firmware and running-service inspection of a firewall appliance — day-to-day
+    IT operations monitoring. Cross-industry IT is the honest home for a devtool/appliance API rather
+    than telecom network operations, since this manages a single device, not an operator network.
+- tag: Firewall
+  spec_file: opnsense-firewall-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: GET /firewall/alias/get  getFirewallAliases  Get firewall aliases configuration; POST /firewall/alias/reconfigure  reconfigureFirewallAliases
+  reason: Retrieves and applies firewall alias (address/port group) configuration on a security appliance
+    — operation of security controls. L1 Cybersecurity Management is defensible; the evidence does not
+    pin a specific sub-capability (not detection/response, not vulnerability management), so no L2.

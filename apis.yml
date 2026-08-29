@@ -107,6 +107,9 @@ apis:
   - type: OpenAPI
     url: openapi/opnsense-firewall-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/opnsense-capability-edges.yml
+    name: OPNsense Business Capability Map
   - type: AgenticAccess
     url: agentic-access/opnsense-agentic-access.yml
   - type: DomainSecurity
