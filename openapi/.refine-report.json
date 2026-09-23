@@ -1,9 +1,7 @@
 {
   "provider": "opnsense",
   "sources": [
-    "opnsense-core-api-openapi.yml",
-    "opnsense-diagnostics-api-openapi.yml",
-    "opnsense-firewall-api-openapi.yml"
+    "_original/opnsense-openapi.yml"
   ],
   "outputs": [
     "opnsense-core-api-openapi.yml",
@@ -13,6 +11,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "opnsense-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "opnsense-core-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opnsense-diagnostics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "opnsense-firewall-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
