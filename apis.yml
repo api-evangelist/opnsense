@@ -41,7 +41,7 @@ tags:
   - Security
   - VPN
   - Routing
-  - Open-Source
+  - Open Source
 tags_raw:
   - Firewall
   - Networking
@@ -49,6 +49,7 @@ tags_raw:
   - VPN
   - Routing
   - Open Source
+  - Open-Source
 url: >-
   https://raw.githubusercontent.com/api-evangelist/opnsense/refs/heads/main/apis.yml
 created: '2026-05-11'
