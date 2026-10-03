@@ -93,6 +93,23 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    GridSearchRequest:
+      type: object
+      properties:
+        current:
+          type: integer
+          description: Current page number (1-based).
+          default: 1
+        rowCount:
+          type: integer
+          description: Rows per page.
+          default: 20
+        sort:
+          type: object
+          additionalProperties:
+            type: string
+        searchPhrase:
+          type: string
     ErrorResponse:
       type: object
       properties:
@@ -114,23 +131,6 @@ components:
           items:
             type: object
             additionalProperties: true
-    GridSearchRequest:
-      type: object
-      properties:
-        current:
-          type: integer
-          description: Current page number (1-based).
-          default: 1
-        rowCount:
-          type: integer
-          description: Rows per page.
-          default: 20
-        sort:
-          type: object
-          additionalProperties:
-            type: string
-        searchPhrase:
-          type: string
   responses:
     Unauthorized:
       description: Authentication failed or missing.
