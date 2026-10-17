@@ -93,6 +93,20 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    GridSearchResponse:
+      type: object
+      properties:
+        total:
+          type: integer
+        rowCount:
+          type: integer
+        current:
+          type: integer
+        rows:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
     GridSearchRequest:
       type: object
       properties:
@@ -110,20 +124,6 @@ components:
             type: string
         searchPhrase:
           type: string
-    GridSearchResponse:
-      type: object
-      properties:
-        total:
-          type: integer
-        rowCount:
-          type: integer
-        current:
-          type: integer
-        rows:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
     ErrorResponse:
       type: object
       properties:
